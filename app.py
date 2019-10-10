@@ -49,7 +49,7 @@ def hello():
 def predict():
     
      
-     X = np.empty((0,30,9))
+     X = np.empty((0,20,9))
      
      dizi=request.args.get('dnm');
      
@@ -65,7 +65,7 @@ def predict():
    
 
      n_timesteps, n_features = X.shape[1], X.shape[2]
-     n_steps, n_length = 3, 10
+     n_steps, n_length = 2, 10
      X = X.reshape((X.shape[0], n_steps, n_length, n_features))
      result=model.predict_classes(X).tolist()
      return json.dumps({'prediction': result})
